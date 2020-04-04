@@ -1,13 +1,14 @@
 // import need to use jsx
 import React from 'react';
 
-const GalleryItem = () => {
+const GalleryItem = ({title, path, description, likes}) => {
 	return(
 		<div>
-            <img alt='my gallery' src='images/goat_small.jpg'/>
+            <img alt={description} src={path}/>
             <div>
-                <h2>Title</h2>
+                <h2>{title}</h2>
                 <button>Love it!</button>
+                <p>{likes} people love this!</p>
             </div>
         </div>
 	);
