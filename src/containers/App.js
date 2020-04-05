@@ -5,7 +5,7 @@ import './App.css';
 import axios from 'axios';
 
 //Import Components
-import Header from '../components/Header/Header'
+import Header from '../components/Header/Header';
 import GalleryList from '../components/GalleryList/GalleryList';
 
 
@@ -29,11 +29,24 @@ class App extends Component {
       });
   }
 
+  updateLikes = (picture) => {
+    console.log('updating picture likes', picture);
+
+    axios.put(`/gallery/like/${picture.id}`)
+      .then( response => {
+        this.getPictures();
+      })
+      .catch( error => {
+        alert(`Couldn't update inventory count. Try again later`);
+        console.log('Error updating inventory count', error);
+      })
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <GalleryList pictures={this.state.galleryList}/>
+        <GalleryList list={this.state.galleryList} updateLikes={this.updateLikes}/>
       </div>
     );
   }
