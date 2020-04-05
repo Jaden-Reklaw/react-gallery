@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import './Header.css';
+
 
 const Header = () => {
     return (
         <header>
-          <h1>Gallery of my life</h1>
+          <h1>My Gallery</h1>
         </header>
     );
 }
